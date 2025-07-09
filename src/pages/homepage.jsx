@@ -10,7 +10,7 @@ const DoctorDashboard = () => {
           <a href="#" className="block text-gray-700 hover:text-blue-500">Dashboard</a>
           <a href="#" className="block text-gray-700 hover:text-blue-500">Appointments</a>
           <a href="#" className="block text-gray-700 hover:text-blue-500">Prescriptions</a>
-          <a href="#" className="block text-gray-700 hover:text-blue-500">Video-Call</a>
+          <a href="#" className="block text-gray-700 hover:text-blue-500">Video Call</a>
           <a href="#" className="block text-gray-700 hover:text-blue-500">AI Assistant</a>
         </nav>
         <div className="p-4">
