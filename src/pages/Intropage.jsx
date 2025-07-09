@@ -1,10 +1,7 @@
 import React from 'react';
 import { Phone, Share2, Clock } from 'lucide-react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import Login from './Login'
 
 export default function ArogyaVaultHomepage() {
-  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-blue-900 font-sans relative overflow-hidden">
       {/* Animated Background Elements */}
@@ -20,7 +17,7 @@ export default function ArogyaVaultHomepage() {
           <div className="text-xl font-bold text-blue-800">Arogya Vault by The Chill Coders</div>
 
           <div className="flex items-center space-x-3">
-
+            <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">Sign Up</button>
             <Clock className="w-5 h-5 text-blue-700" />
             <Share2 className="w-5 h-5 text-blue-700" />
           </div>
@@ -54,7 +51,7 @@ export default function ArogyaVaultHomepage() {
               <p className="text-xl text-blue-700 mb-8 font-serif italic max-w-2xl">
                 जीवितकावत्, योगत्; आयुर्वेदत्; विज्ञानस्य संगम।
               </p>
-              <button onClick={()=>navigate('/login')} className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg text-lg">
+              <button className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg text-lg">
                 Start Your Health Journey
               </button>
             </div>
