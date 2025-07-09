@@ -157,20 +157,20 @@ const DoctorDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Sidebar */}
-      <div className="fixed left-0 top-0 w-72 h-full bg-white/80 backdrop-blur-xl shadow-2xl border-r border-white/20 z-10">
+      <div className="fixed left-0 top-0 w-72 h-full bg-white/80 backdrop-blur-xl shadow-2xl border-r border-white/20 z-10 flex flex-col">
         <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-indigo-900">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
               <Activity className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">Kuch Kuch</h1>
-              <p className="text-sm text-blue-200">By Lorem3</p>
+              <h1 className="text-xl font-bold text-white">Arogya Vault</h1>
+              <p className="text-sm text-blue-200">by The chill coders</p>
             </div>
           </div>
         </div>
         
-        <div className="p-6">
+        <div className="p-6 flex-1 overflow-y-auto">
           <div className="mb-6">
             <h2 className="text-lg font-semibold text-gray-800 mb-1">Doctor's Dashboard</h2>
             <div className="flex items-center space-x-2">
@@ -179,7 +179,7 @@ const DoctorDashboard = () => {
             </div>
           </div>
           
-          <nav className="space-y-2">
+          <nav className="space-y-2 mb-8">
             {sidebarItems.map((item) => (
               <button
                 key={item.id}
@@ -206,7 +206,7 @@ const DoctorDashboard = () => {
           </nav>
         </div>
 
-        <div className="absolute bottom-6 left-6 right-6 space-y-4">
+        <div className="p-6 space-y-4 border-t border-gray-100">
           <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
             <div className="flex items-center justify-between">
               <div>
