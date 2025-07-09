@@ -178,8 +178,8 @@ const DoctorDashboard = () => {
       <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 fixed md:static z-50 md:z-10 w-72 bg-white/80 backdrop-blur-xl shadow-2xl border-r border-white/20 h-screen flex flex-col`}>
         {/* Sidebar content here (same as before) */}
         {/* Sidebar Header */}
-        <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-indigo-900">
-          <div className="flex items-center space-x-3">
+        <div className="p-4 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-indigo-900">
+          <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
               <Activity className="w-6 h-6 text-white" />
             </div>
@@ -191,16 +191,16 @@ const DoctorDashboard = () => {
         </div>
 
         {/* Sidebar Navigation */}
-        <div className="p-6 flex-1 overflow-y-auto">
-          <div className="mb-6">
+        <div className="p-4 flex-1 overflow-y-auto">
+          <div className="mb-3">
             <h2 className="text-lg font-semibold text-gray-800 mb-1">Doctor's Dashboard</h2>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span className="text-sm text-gray-600">Online</span>
             </div>
           </div>
 
-          <nav className="space-y-2 mb-8">
+          <nav className="space-y-1 mb-4">
             {sidebarItems.map((item) => (
               <button
                 key={item.id}
@@ -208,14 +208,14 @@ const DoctorDashboard = () => {
                   setActiveTab(item.id);
                   setSidebarOpen(false); // auto-close on mobile
                 }}
-                className={`w-full flex items-center px-4 py-3 rounded-xl transition-all duration-300 group ${
+                className={`w-full flex items-center px-3 py-2 rounded-xl transition-all duration-300 group ${
                   activeTab === item.id
                     ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg transform scale-105'
                     : 'text-gray-700 hover:bg-gray-50 hover:shadow-md hover:scale-102'
                 }`}
               >
                 <div
-                  className={`p-2 rounded-lg mr-3 transition-colors ${
+                  className={`p-2 rounded-lg mr-2 transition-colors ${
                     activeTab === item.id ? 'bg-white/20' : 'bg-gray-100 group-hover:bg-white'
                   }`}
                 >
@@ -229,8 +229,8 @@ const DoctorDashboard = () => {
         </div>
 
         {/* Sidebar Bottom Widgets */}
-        <div className="p-6 space-y-4 border-t border-gray-100">
-          <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
+        <div className="p-4 space-y-2 border-t border-gray-100">
+          <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium">Update Time Slot</p>
@@ -240,9 +240,9 @@ const DoctorDashboard = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center mb-3">
-              <div className="p-2 bg-white/20 rounded-lg mr-3">
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="flex items-center mb-2">
+              <div className="p-2 bg-white/20 rounded-lg mr-2">
                 <Bot className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -253,18 +253,18 @@ const DoctorDashboard = () => {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-blue-100 mb-3">
+            <p className="text-xs text-blue-100 mb-2">
               Get instant medical insights and patient recommendations
             </p>
-            <button className="w-full bg-white/20 hover:bg-white/30 text-white py-2 px-4 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center space-x-2">
+            <button className="w-full bg-white/20 hover:bg-white/30 text-white py-1.5 px-3 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center space-x-2">
               <Zap className="w-4 h-4" />
               <span>Start Chat</span>
             </button>
           </div>
 
-          <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center mb-3">
-              <div className="p-2 bg-white/20 rounded-lg mr-3">
+          <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="flex items-center mb-2">
+              <div className="p-2 bg-white/20 rounded-lg mr-2">
                 <Video className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -276,8 +276,8 @@ const DoctorDashboard = () => {
               </div>
             </div>
             <p className="text-sm text-white font-medium">Emma Johnson</p>
-            <p className="text-xs text-emerald-100 mb-3">4:30 PM - 5:30 PM</p>
-            <button className="w-full bg-white/20 hover:bg-white/30 text-white py-2 px-4 rounded-xl text-sm font-medium transition-all duration-300">
+            <p className="text-xs text-emerald-100 mb-2">4:30 PM - 5:30 PM</p>
+            <button className="w-full bg-white/20 hover:bg-white/30 text-white py-1.5 px-3 rounded-xl text-sm font-medium transition-all duration-300">
               Join Call
             </button>
           </div>
@@ -288,36 +288,36 @@ const DoctorDashboard = () => {
       {/* Main Content */}
       <div className="flex-1 md:ml-72">
         {/* Top Navigation */}
-        <div className="hidden md:flex bg-white/80 backdrop-blur-xl shadow-sm border-b border-white/20 px-8 py-6 items-center justify-between">
-          <div className="flex items-center space-x-8">
+        <div className="hidden md:flex bg-white/80 backdrop-blur-xl shadow-sm border-b border-white/20 px-4 py-3 items-center justify-between">
+          <div className="flex items-center space-x-4">
             <div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
                 Doctor's Dashboard
               </h1>
               <p className="text-gray-600 text-sm">Welcome back, Dr. Sarah</p>
             </div>
-            <nav className="flex space-x-6">
+            <nav className="flex space-x-3">
               {['Home', 'AI Bot', 'Certificates', 'Appointment', 'Video Call'].map((item) => (
                 <a
                   key={item}
                   href="#"
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 rounded-lg hover:bg-blue-50"
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-2 py-1.5 rounded-lg hover:bg-blue-50"
                 >
                   {item}
                 </a>
               ))}
             </nav>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             <div className="relative">
               <Search className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
               <input
                 type="text"
                 placeholder="Search patients..."
-                className="pl-12 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm w-64"
+                className="pl-12 pr-4 py-2 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm w-64"
               />
             </div>
-            <button className="relative p-3 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-2xl transition-all duration-300">
+            <button className="relative p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-2xl transition-all duration-300">
               <Bell className="w-5 h-5" />
               {notifications > 0 && (
                 <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">
@@ -325,19 +325,19 @@ const DoctorDashboard = () => {
                 </span>
               )}
             </button>
-            <button className="p-3 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-2xl transition-all duration-300">
+            <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-2xl transition-all duration-300">
               <Settings className="w-5 h-5" />
             </button>
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
               DS
             </div>
           </div>
         </div>
 
         {/* Main Content Container */}
-        <div className="p-4 sm:p-6 md:p-8">
+        <div className="p-4 sm:p-6 md:p-4">
           {/* Status Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
             {statusCards.map((card, index) => (
               <div
                 key={index}
