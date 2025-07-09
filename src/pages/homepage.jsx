@@ -96,8 +96,8 @@ const DoctorDashboard = () => {
       {/* Sidebar */}
       <div className="fixed left-0 top-0 w-64 h-full bg-white shadow-lg border-r border-gray-200 z-10">
         <div className="p-6 border-b border-gray-200">
-          <h1 className="text-xl font-bold text-blue-900">Arogya Vault</h1>
-          <p className="text-sm text-gray-600">by The chill coders</p>
+          <h1 className="text-xl font-bold text-blue-900">Kuch Kuch</h1>
+          <p className="text-sm text-gray-600">By Lorem3</p>
         </div>
         
         <div className="p-4">
