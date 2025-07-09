@@ -7,7 +7,7 @@ export default function ArogyaVaultHomepage() {
       {/* Header */}
       <header className="w-full bg-white border-b border-blue-200 fixed top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <div className="text-xl font-bold text-blue-800">Arogya Vault by The Chill Coders</div>
+          <div className="text-xl font-bold text-blue-800">Lvda Coders</div>
 
           <nav className="hidden md:flex items-center space-x-6">
             <a href="#" className="hover:text-blue-600 transition">Home</a>
