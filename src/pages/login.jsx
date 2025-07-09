@@ -129,7 +129,7 @@ const Login = () => {
             type="submit"
             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2"
           >
-            <Heart className="w-5 h-5" />
+            {/* <Heart className="w-5 h-5" /> */}
             <span>{currentState === "Sign up" ? "Create Account" : "Sign In"}</span>
           </button>
 
