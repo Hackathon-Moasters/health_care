@@ -1,7 +1,11 @@
 import React from 'react';
 import { Phone, Share2, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+import Homepage from './Homepage'
 
 export default function ArogyaVaultHomepage() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white text-blue-900 font-sans">
       {/* Header */}
@@ -10,7 +14,7 @@ export default function ArogyaVaultHomepage() {
           <div className="text-xl font-bold text-blue-800">Lvda Coders</div>
 
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#" className="hover:text-blue-600 transition">Home</a>
+            <a href="#" className="hover:text-blue-600 transition" onClick={() => navigate('/home')}>Home</a>
             <a href="#" className="hover:text-blue-600 transition">AI Bot</a>
             <a href="#" className="hover:text-blue-600 transition">Certificates</a>
             <a href="#" className="hover:text-blue-600 transition">Appointment</a>
