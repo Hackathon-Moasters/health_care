@@ -176,10 +176,16 @@ const DoctorDashboard = () => {
 
       {/* Sidebar */}
       <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 fixed md:static z-50 md:z-10 w-72 bg-white/80 backdrop-blur-xl shadow-2xl border-r border-white/20 h-screen flex flex-col`}>
+<<<<<<< Updated upstream
         {/* Sidebar content here (same as before) */}
         {/* Sidebar Header */}
         <div className="p-4 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-indigo-900">
           <div className="flex items-center space-x-2">
+=======
+
+        <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-indigo-900">
+          <div className="flex items-center space-x-3">
+>>>>>>> Stashed changes
             <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
               <Activity className="w-6 h-6 text-white" />
             </div>
@@ -286,7 +292,7 @@ const DoctorDashboard = () => {
 
       {/* Main content continues below */}
       {/* Main Content */}
-      <div className="flex-1 md:ml-72">
+      <div className="absolute md:ml-72">
         {/* Top Navigation */}
         <div className="hidden md:flex bg-white/80 backdrop-blur-xl shadow-sm border-b border-white/20 px-4 py-3 items-center justify-between">
           <div className="flex items-center space-x-4">
