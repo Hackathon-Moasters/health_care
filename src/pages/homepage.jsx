@@ -13,26 +13,68 @@ import {
   Check,
   X,
   Download,
-  Filter
+  Filter,
+  TrendingUp,
+  Activity,
+  Clock,
+  Users,
+  Star,
+  ArrowRight,
+  Zap,
+  Heart,
+  Shield
 } from 'lucide-react';
 
 const DoctorDashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [selectedStatus, setSelectedStatus] = useState('All Status');
+  const [notifications, setNotifications] = useState(3);
 
   const sidebarItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Calendar, active: true },
-    { id: 'appointments', label: 'Appointments', icon: Calendar },
-    { id: 'prescriptions', label: 'Prescriptions', icon: Pill },
-    { id: 'video-call', label: 'Video-Call', icon: Video },
-    { id: 'ai-assistant', label: 'AI-Assistant', icon: Bot },
+    { id: 'dashboard', label: 'Dashboard', icon: Activity, active: true, color: 'text-blue-400' },
+    { id: 'appointments', label: 'Appointments', icon: Calendar, color: 'text-green-400' },
+    { id: 'prescriptions', label: 'Prescriptions', icon: Pill, color: 'text-purple-400' },
+    { id: 'video-call', label: 'Video-Call', icon: Video, color: 'text-red-400' },
+    { id: 'ai-assistant', label: 'AI-Assistant', icon: Bot, color: 'text-yellow-400' },
   ];
 
   const statusCards = [
-    { title: 'Today\'s Appointments', value: 8, color: 'bg-blue-600', icon: Calendar },
-    { title: 'Pending Certificates', value: 14, color: 'bg-yellow-600', icon: FileText },
-    { title: 'Active Cases', value: 12, color: 'bg-green-600', icon: User },
-    { title: 'Video Consultations', value: 5, color: 'bg-purple-600', icon: Video },
+    { 
+      title: 'Today\'s Appointments', 
+      value: 8, 
+      gradient: 'from-blue-600 to-blue-700',
+      icon: Calendar,
+      trend: '+12%',
+      subtitle: 'vs last week',
+      bgPattern: 'bg-blue-50'
+    },
+    { 
+      title: 'Pending Certificates', 
+      value: 14, 
+      gradient: 'from-amber-500 to-orange-600',
+      icon: Shield,
+      trend: '+8%',
+      subtitle: 'pending review',
+      bgPattern: 'bg-amber-50'
+    },
+    { 
+      title: 'Active Cases', 
+      value: 12, 
+      gradient: 'from-emerald-500 to-teal-600',
+      icon: Heart,
+      trend: '+24%',
+      subtitle: 'recovery rate',
+      bgPattern: 'bg-emerald-50'
+    },
+    { 
+      title: 'Video Consultations', 
+      value: 5, 
+      gradient: 'from-purple-600 to-indigo-600',
+      icon: Video,
+      trend: '+18%',
+      subtitle: 'completed today',
+      bgPattern: 'bg-purple-50'
+    },
   ];
 
   const certificateData = [
@@ -44,7 +86,9 @@ const DoctorDashboard = () => {
       issueDate: '2023-04-15',
       expiryDate: '2024-04-15',
       document: 'fitness_cert.pdf',
-      status: 'Pending'
+      status: 'Pending',
+      priority: 'High',
+      avatar: 'JS'
     },
     {
       id: 'CERT002',
@@ -54,7 +98,9 @@ const DoctorDashboard = () => {
       issueDate: '2023-04-20',
       expiryDate: '2024-04-20',
       document: 'vacc_record.pdf',
-      status: 'Approved'
+      status: 'Approved',
+      priority: 'Normal',
+      avatar: 'EJ'
     },
     {
       id: 'CERT003',
@@ -64,7 +110,9 @@ const DoctorDashboard = () => {
       issueDate: '2023-04-05',
       expiryDate: '2024-04-05',
       document: 'mh_clearance.pdf',
-      status: 'Pending'
+      status: 'Pending',
+      priority: 'Medium',
+      avatar: 'MW'
     },
     {
       id: 'CERT004',
@@ -74,78 +122,139 @@ const DoctorDashboard = () => {
       issueDate: '2023-04-28',
       expiryDate: '2024-04-28',
       document: 'physical_exam.pdf',
-      status: 'Rejected'
+      status: 'Rejected',
+      priority: 'Low',
+      avatar: 'SM'
     }
   ];
 
   const getStatusColor = (status) => {
     switch (status) {
       case 'Pending':
-        return 'bg-yellow-100 text-yellow-800';
+        return 'bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800 border border-amber-200';
       case 'Approved':
-        return 'bg-green-100 text-green-800';
+        return 'bg-gradient-to-r from-emerald-100 to-green-100 text-emerald-800 border border-emerald-200';
       case 'Rejected':
-        return 'bg-red-100 text-red-800';
+        return 'bg-gradient-to-r from-red-100 to-rose-100 text-red-800 border border-red-200';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-gradient-to-r from-gray-100 to-slate-100 text-gray-800 border border-gray-200';
+    }
+  };
+
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case 'High':
+        return 'bg-red-500';
+      case 'Medium':
+        return 'bg-yellow-500';
+      case 'Low':
+        return 'bg-green-500';
+      default:
+        return 'bg-gray-500';
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Sidebar */}
-      <div className="fixed left-0 top-0 w-64 h-full bg-white shadow-lg border-r border-gray-200 z-10">
-        <div className="p-6 border-b border-gray-200">
-          <h1 className="text-xl font-bold text-blue-900">Arogya Vault</h1>
-          <p className="text-sm text-gray-600">by The chill coders</p>
+      <div className="fixed left-0 top-0 w-72 h-full bg-white/80 backdrop-blur-xl shadow-2xl border-r border-white/20 z-10">
+        <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-blue-900 to-indigo-900">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+              <Activity className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-white">Kuch Kuch</h1>
+              <p className="text-sm text-blue-200">By Lorem3</p>
+            </div>
+          </div>
         </div>
         
-        <div className="p-4">
-          <h2 className="text-lg font-semibold text-blue-900 mb-4">Doctor's Dashboard</h2>
+        <div className="p-6">
+          <div className="mb-6">
+            <h2 className="text-lg font-semibold text-gray-800 mb-1">Doctor's Dashboard</h2>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-sm text-gray-600">Online</span>
+            </div>
+          </div>
+          
           <nav className="space-y-2">
             {sidebarItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center px-4 py-3 rounded-lg transition-colors ${
+                className={`w-full flex items-center px-4 py-3 rounded-xl transition-all duration-300 group ${
                   activeTab === item.id
-                    ? 'bg-blue-900 text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg transform scale-105'
+                    : 'text-gray-700 hover:bg-gray-50 hover:shadow-md hover:scale-102'
                 }`}
               >
-                <item.icon className="w-5 h-5 mr-3" />
+                <div className={`p-2 rounded-lg mr-3 transition-colors ${
+                  activeTab === item.id ? 'bg-white/20' : 'bg-gray-100 group-hover:bg-white'
+                }`}>
+                  <item.icon className={`w-5 h-5 ${
+                    activeTab === item.id ? 'text-white' : item.color
+                  }`} />
+                </div>
                 <span className="font-medium">{item.label}</span>
+                {activeTab === item.id && (
+                  <ArrowRight className="w-4 h-4 ml-auto animate-pulse" />
+                )}
               </button>
             ))}
           </nav>
         </div>
 
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="bg-green-500 text-white p-3 rounded-lg text-center">
-            <p className="text-sm font-medium">Update Time Slot</p>
+        <div className="absolute bottom-6 left-6 right-6 space-y-4">
+          <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium">Update Time Slot</p>
+                <p className="text-xs text-green-100">Manage availability</p>
+              </div>
+              <Clock className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            </div>
           </div>
           
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-            <div className="flex items-center mb-2">
-              <Bot className="w-5 h-5 text-blue-600 mr-2" />
-              <h3 className="font-semibold text-blue-900">AI Assistant</h3>
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="flex items-center mb-3">
+              <div className="p-2 bg-white/20 rounded-lg mr-3">
+                <Bot className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-white">AI Assistant</h3>
+                <div className="flex items-center space-x-1">
+                  <Star className="w-3 h-3 text-yellow-300" />
+                  <span className="text-xs text-blue-100">Smart & Fast</span>
+                </div>
+              </div>
             </div>
-            <p className="text-xs text-gray-600 mb-3">
-              Get quick assistance with diagnoses, medical references, and patient recommendations.
+            <p className="text-xs text-blue-100 mb-3">
+              Get instant medical insights and patient recommendations
             </p>
-            <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
-              Start Conversation
+            <button className="w-full bg-white/20 hover:bg-white/30 text-white py-2 px-4 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-center space-x-2">
+              <Zap className="w-4 h-4" />
+              <span>Start Chat</span>
             </button>
           </div>
 
-          <div className="mt-4 p-3 bg-green-50 rounded-lg">
-            <div className="flex items-center mb-2">
-              <Video className="w-5 h-5 text-green-600 mr-2" />
-              <h3 className="font-semibold text-green-900">Upcoming Video Call</h3>
+          <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="flex items-center mb-3">
+              <div className="p-2 bg-white/20 rounded-lg mr-3">
+                <Video className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-white">Next Call</h3>
+                <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-emerald-100">In 15 mins</span>
+                </div>
+              </div>
             </div>
-            <p className="text-sm text-gray-700">Emma Johnson</p>
-            <p className="text-xs text-gray-500">Today, 4:30 PM - 5:30 PM</p>
-            <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg text-sm font-medium mt-2 hover:bg-green-700 transition-colors">
+            <p className="text-sm text-white font-medium">Emma Johnson</p>
+            <p className="text-xs text-emerald-100 mb-3">4:30 PM - 5:30 PM</p>
+            <button className="w-full bg-white/20 hover:bg-white/30 text-white py-2 px-4 rounded-xl text-sm font-medium transition-all duration-300">
               Join Call
             </button>
           </div>
@@ -153,95 +262,122 @@ const DoctorDashboard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="ml-64">
+      <div className="ml-72">
         {/* Top Navigation */}
-        <div className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+        <div className="bg-white/80 backdrop-blur-xl shadow-sm border-b border-white/20 px-8 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-6">
-              <h1 className="text-2xl font-bold text-blue-900">Doctor's Dashboard</h1>
-              <nav className="flex space-x-8">
-                <a href="#" className="text-gray-700 hover:text-blue-900">Home</a>
-                <a href="#" className="text-gray-700 hover:text-blue-900">AI Bot</a>
-                <a href="#" className="text-gray-700 hover:text-blue-900">Certificates</a>
-                <a href="#" className="text-gray-700 hover:text-blue-900">Appointment</a>
-                <a href="#" className="text-gray-700 hover:text-blue-900">Video Call</a>
+            <div className="flex items-center space-x-8">
+              <div>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-900 to-indigo-900 bg-clip-text text-transparent">
+                  Doctor's Dashboard
+                </h1>
+                <p className="text-gray-600 text-sm">Welcome back, Dr. Sarah</p>
+              </div>
+              <nav className="flex space-x-6">
+                {['Home', 'AI Bot', 'Certificates', 'Appointment', 'Video Call'].map((item) => (
+                  <a key={item} href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors px-3 py-2 rounded-lg hover:bg-blue-50">
+                    {item}
+                  </a>
+                ))}
               </nav>
             </div>
             <div className="flex items-center space-x-4">
               <div className="relative">
-                <Search className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
+                <Search className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Search patients..."
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="pl-12 pr-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm w-64"
                 />
               </div>
-              <button className="p-2 text-gray-400 hover:text-gray-600">
+              <button className="relative p-3 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-2xl transition-all duration-300">
                 <Bell className="w-5 h-5" />
+                {notifications > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">
+                    {notifications}
+                  </span>
+                )}
               </button>
-              <button className="p-2 text-gray-400 hover:text-gray-600">
+              <button className="p-3 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-2xl transition-all duration-300">
                 <Settings className="w-5 h-5" />
               </button>
-              <div className="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center text-white font-medium">
-                D
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                DS
               </div>
             </div>
           </div>
         </div>
 
         {/* Dashboard Content */}
-        <div className="p-6">
+        <div className="p-8">
           {/* Status Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {statusCards.map((card, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className={`w-12 h-12 ${card.color} rounded-lg flex items-center justify-center mb-4`}>
-                      <card.icon className="w-6 h-6 text-white" />
+              <div 
+                key={index} 
+                className={`${card.bgPattern} rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group cursor-pointer`}
+              >
+                <div className="p-6 relative">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`w-14 h-14 bg-gradient-to-r ${card.gradient} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <card.icon className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900">{card.value}</h3>
-                    <p className="text-sm text-gray-600">{card.title}</p>
-                    <p className="text-xs text-gray-500 mt-1">Today</p>
+                    <div className="text-right">
+                      <div className="flex items-center space-x-1 text-emerald-600">
+                        <TrendingUp className="w-4 h-4" />
+                        <span className="text-sm font-semibold">{card.trend}</span>
+                      </div>
+                    </div>
                   </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-2">{card.value}</h3>
+                  <p className="text-gray-700 font-medium text-sm mb-1">{card.title}</p>
+                  <p className="text-gray-500 text-xs">{card.subtitle}</p>
+                  
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Navigation Tabs */}
-          <div className="mb-6">
-            <nav className="flex space-x-8 border-b border-gray-200">
-              {[
-                'Certificate Verification',
-                'Appointment Approval',
-                'Prescription Verification',
-                'Video Consultations'
-              ].map((tab, index) => (
-                <button
-                  key={index}
-                  className={`py-2 px-1 border-b-2 font-medium text-sm ${
-                    index === 0
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </nav>
+          <div className="mb-8">
+            <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-lg p-2">
+              <nav className="flex space-x-2">
+                {[
+                  { name: 'Certificate Verification', icon: Shield },
+                  { name: 'Appointment Approval', icon: Calendar },
+                  { name: 'Prescription Verification', icon: Pill },
+                  { name: 'Video Consultations', icon: Video }
+                ].map((tab, index) => (
+                  <button
+                    key={index}
+                    className={`flex items-center space-x-2 py-3 px-6 rounded-xl font-medium text-sm transition-all duration-300 ${
+                      index === 0
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                        : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
+                    }`}
+                  >
+                    <tab.icon className="w-4 h-4" />
+                    <span>{tab.name}</span>
+                  </button>
+                ))}
+              </nav>
+            </div>
           </div>
 
           {/* Certificate Verification Table */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-            <div className="px-6 py-4 border-b border-gray-200">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+            <div className="px-8 py-6 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-indigo-50">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">Student Certificate Verification</h2>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-1">Student Certificate Verification</h2>
+                  <p className="text-gray-600 text-sm">Manage and review student medical certificates</p>
+                </div>
                 <div className="flex items-center space-x-4">
                   <select
                     value={selectedStatus}
                     onChange={(e) => setSelectedStatus(e.target.value)}
-                    className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="border border-gray-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/50 backdrop-blur-sm"
                   >
                     <option>All Status</option>
                     <option>Pending</option>
@@ -249,11 +385,11 @@ const DoctorDashboard = () => {
                     <option>Rejected</option>
                   </select>
                   <div className="relative">
-                    <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2" />
+                    <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
                     <input
                       type="text"
                       placeholder="Search by ID"
-                      className="pl-9 pr-4 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="pl-10 pr-4 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/50 backdrop-blur-sm"
                     />
                   </div>
                 </div>
@@ -262,50 +398,69 @@ const DoctorDashboard = () => {
             
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student Name</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student ID</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Certificate Type</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Issue Date</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expiry Date</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Document</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Student</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Certificate Info</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Dates</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Document</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {certificateData.map((item) => (
-                    <tr key={item.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.id}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.studentName}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.studentId}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.certificateType}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.issueDate}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.expiryDate}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600 hover:text-blue-900">
-                        <a href="#" className="flex items-center">
-                          <Download className="w-4 h-4 mr-1" />
-                          {item.document}
+                <tbody className="divide-y divide-gray-100">
+                  {certificateData.map((item, index) => (
+                    <tr key={item.id} className="hover:bg-blue-50/50 transition-colors duration-300 group">
+                      <td className="px-6 py-5">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                            {item.avatar}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900">{item.studentName}</p>
+                            <p className="text-sm text-gray-600">{item.studentId}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-5">
+                        <div className="flex items-center space-x-2">
+                          <div className={`w-3 h-3 rounded-full ${getPriorityColor(item.priority)}`}></div>
+                          <div>
+                            <p className="font-medium text-gray-900">{item.id}</p>
+                            <p className="text-sm text-gray-600">{item.certificateType}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-5">
+                        <div className="text-sm">
+                          <p className="text-gray-900">Issue: {item.issueDate}</p>
+                          <p className="text-gray-600">Expiry: {item.expiryDate}</p>
+                        </div>
+                      </td>
+                      <td className="px-6 py-5">
+                        <a href="#" className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors group">
+                          <div className="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
+                            <Download className="w-4 h-4" />
+                          </div>
+                          <span className="text-sm font-medium">{item.document}</span>
                         </a>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(item.status)}`}>
+                      <td className="px-6 py-5">
+                        <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full ${getStatusColor(item.status)}`}>
                           {item.status}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-5">
                         <div className="flex items-center space-x-2">
-                          <button className="text-blue-600 hover:text-blue-900">
+                          <button className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-all duration-300">
                             <Eye className="w-4 h-4" />
                           </button>
                           {item.status === 'Pending' && (
                             <>
-                              <button className="text-green-600 hover:text-green-900">
+                              <button className="p-2 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-lg transition-all duration-300">
                                 <Check className="w-4 h-4" />
                               </button>
-                              <button className="text-red-600 hover:text-red-900">
+                              <button className="p-2 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-all duration-300">
                                 <X className="w-4 h-4" />
                               </button>
                             </>
