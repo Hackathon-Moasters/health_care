@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Menu, X, User, Calendar, Clock, MapPin, Star, Search, Filter, Heart, Shield, Award, Users } from 'lucide-react';
+<<<<<<< Updated upstream
 import { useNavigate } from 'react-router-dom'; // ✅ FIXED
 
+=======
+>>>>>>> Stashed changes
 
 const PrescriptoApp = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedSpecialty, setSelectedSpecialty] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('grid');
+<<<<<<< Updated upstream
 const navigate = useNavigate(); // ✅ this works now
 
+=======
+>>>>>>> Stashed changes
 
   const specialties = [
     'General physician',
@@ -21,6 +27,7 @@ const navigate = useNavigate(); // ✅ this works now
   ];
 
   const doctors = [
+<<<<<<< Updated upstream
   {
     id: 1,
     name: 'Dr. Richard James',
@@ -144,6 +151,122 @@ const navigate = useNavigate(); // ✅ this works now
 ];
 
 
+=======
+    {
+      id: 1,
+      name: 'Dr. Richard James',
+      specialty: 'General physician',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.8,
+      reviews: 245,
+      experience: '8 years',
+      location: 'New York',
+      price: '$150',
+      nextAvailable: 'Today',
+      verified: true
+    },
+    {
+      id: 2,
+      name: 'Dr. Emily Larson',
+      specialty: 'Gynecologist',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.9,
+      reviews: 189,
+      experience: '12 years',
+      location: 'Los Angeles',
+      price: '$200',
+      nextAvailable: 'Tomorrow',
+      verified: true
+    },
+    {
+      id: 3,
+      name: 'Dr. Sarah Patel',
+      specialty: 'Dermatologist',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.7,
+      reviews: 156,
+      experience: '10 years',
+      location: 'Chicago',
+      price: '$180',
+      nextAvailable: 'Today',
+      verified: true
+    },
+    {
+      id: 4,
+      name: 'Dr. Christopher Lee',
+      specialty: 'Pediatricians',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.9,
+      reviews: 298,
+      experience: '15 years',
+      location: 'Houston',
+      price: '$160',
+      nextAvailable: '2 days',
+      verified: true
+    },
+    {
+      id: 5,
+      name: 'Dr. Maria Rodriguez',
+      specialty: 'Neurologist',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.8,
+      reviews: 167,
+      experience: '11 years',
+      location: 'Miami',
+      price: '$250',
+      nextAvailable: 'Today',
+      verified: true
+    },
+    {
+      id: 6,
+      name: 'Dr. James Wilson',
+      specialty: 'Gastroenterologist',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.6,
+      reviews: 134,
+      experience: '9 years',
+      location: 'Seattle',
+      price: '$220',
+      nextAvailable: 'Tomorrow',
+      verified: true
+    },
+    {
+      id: 7,
+      name: 'Dr. Lisa Chen',
+      specialty: 'General physician',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.7,
+      reviews: 201,
+      experience: '7 years',
+      location: 'San Francisco',
+      price: '$140',
+      nextAvailable: 'Today',
+      verified: true
+    },
+    {
+      id: 8,
+      name: 'Dr. Michael Brown',
+      specialty: 'Dermatologist',
+      image: '/api/placeholder/300/300',
+      available: true,
+      rating: 4.8,
+      reviews: 178,
+      experience: '13 years',
+      location: 'Boston',
+      price: '$190',
+      nextAvailable: '3 days',
+      verified: true
+    }
+  ];
+
+>>>>>>> Stashed changes
   const filteredDoctors = doctors.filter(doctor => {
     const matchesSpecialty = selectedSpecialty === '' || doctor.specialty === selectedSpecialty;
     const matchesSearch = doctor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -154,6 +277,7 @@ const navigate = useNavigate(); // ✅ this works now
   const DoctorCard = ({ doctor }) => (
     <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200">
       <div className="relative">
+<<<<<<< Updated upstream
 <div className="w-full h-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
   <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 overflow-hidden">
     <img
@@ -163,6 +287,13 @@ const navigate = useNavigate(); // ✅ this works now
     />
   </div>
 </div>
+=======
+        <div className="w-full h-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
+          <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <User className="w-12 h-12 text-blue-600" />
+          </div>
+        </div>
+>>>>>>> Stashed changes
         
         {doctor.available && (
           <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center backdrop-blur-sm">
@@ -216,7 +347,11 @@ const navigate = useNavigate(); // ✅ this works now
           </div>
         </div>
         
+<<<<<<< Updated upstream
         <button onClick={() => navigate('/booking', { state: { doctor } })}className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center group-hover:shadow-lg">
+=======
+        <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center group-hover:shadow-lg">
+>>>>>>> Stashed changes
           <Calendar className="w-4 h-4 mr-2" />
           Book Appointment
         </button>
@@ -250,7 +385,11 @@ const navigate = useNavigate(); // ✅ this works now
                 ALL DOCTORS
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
+<<<<<<< Updated upstream
               <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
+=======
+              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
+>>>>>>> Stashed changes
                 ABOUT
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
