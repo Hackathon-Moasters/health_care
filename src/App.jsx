@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Patient_dashboard from './pages/Patient_dashboard';
 import BookingSlot from './pages/BookingSlot';
 import About from './pages/About';
+import Header from './assets/components/Header.jsx';
 
 
 
@@ -15,6 +16,9 @@ const App = () => {
   
   return (
     <div>
+     <div>
+        <Header />
+      </div>
       <Routes>
   <Route path='/' element={ <Intropage/>} />
   <Route path='/dr' element={ <Dr_dashboard/>} />

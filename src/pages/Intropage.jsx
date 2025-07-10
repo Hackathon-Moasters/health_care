@@ -7,32 +7,7 @@ export default function PrescriptoWebsite() {
   const Navigate =useNavigate()
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white rounded-full"></div>
-                </div>
-                <span className="ml-2 text-xl font-bold text-gray-900">Prescripto</span>
-              </div>
-            </div>
-            
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-900 hover:text-blue-600 font-medium">HOME</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium" onClick={()=>Navigate('/alldr')} >ALL DOCTORS</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">ABOUT</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">CONTACT</a>
-            </nav>
-            
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-              Create account
-            </button>
-          </div>
-        </div>
-      </header>
+
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">

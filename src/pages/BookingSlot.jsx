@@ -28,34 +28,7 @@ const doctor = state?.doctor;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <ArrowLeft onClick={()=>navigate('/alldr')} className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 mr-2 sm:mr-4 cursor-pointer hover:text-blue-600" />
-              <div className="flex items-center">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-sm"></div>
-                </div>
-                <span className="ml-2 text-lg sm:text-xl font-bold text-gray-900">Prescripto</span>
-              </div>
-            </div>
-            
-            <nav className="hidden lg:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">HOME</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">ALL DOCTORS</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">ABOUT</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">CONTACT</a>
-            </nav>
-            
-            <button className="bg-blue-600 text-white px-3 py-1.5 sm:px-6 sm:py-2 rounded-full hover:bg-blue-700 transition-colors font-medium text-sm sm:text-base">
-              <span className="hidden sm:inline">Create account</span>
-              <span className="sm:hidden">Join</span>
-            </button>
-          </div>
-        </div>
-      </header>
+
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
