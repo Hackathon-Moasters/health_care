@@ -6,6 +6,7 @@ import Intropage from './pages/Intropage';
 import Login from './pages/Login';
 import Patient_dashboard from './pages/Patient_dashboard';
 import BookingSlot from './pages/BookingSlot';
+import About from './pages/About';
 
 
 
@@ -21,6 +22,8 @@ const App = () => {
   <Route path='/patient' element={ <Patient_dashboard />} />
   <Route path='/login' element={ <Login />} />
   <Route path='/booking' element={ <BookingSlot />} />
+  <Route path='/about' element={ <About />} />
+
 
 
   
