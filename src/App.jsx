@@ -8,6 +8,7 @@ import Patient_dashboard from './pages/Patient_dashboard';
 import BookingSlot from './pages/BookingSlot';
 import About from './pages/About';
 import Header from './assets/components/Header.jsx';
+import Contact from './pages/Contact_us.jsx';
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
   <Route path='/login' element={ <Login />} />
   <Route path='/booking' element={ <BookingSlot />} />
   <Route path='/about' element={ <About />} />
+  <Route path='/contact' element={ <Contact />} />
 
 
 
