@@ -226,20 +226,8 @@ const navigate = useNavigate(); // ✅ this works now
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50/30">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                <span className="text-white font-bold text-xl">P</span>
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                Prescripto
-              </span>
-            </div>
 
+<<<<<<< Updated upstream
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
@@ -292,6 +280,8 @@ const navigate = useNavigate(); // ✅ this works now
           </div>
         )}
       </header>
+=======
+>>>>>>> Stashed changes
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white py-12">
@@ -513,4 +503,4 @@ const navigate = useNavigate(); // ✅ this works now
   );
 };
 
-export default PrescriptoApp; 
+export default PrescriptoApp;
