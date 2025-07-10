@@ -496,4 +496,4 @@ const PrescriptoApp = () => {
   );
 };
 
-export default PrescriptoApp;
+export default PrescriptoApp; 
