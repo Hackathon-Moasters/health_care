@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Menu, X, User, Calendar, Clock, MapPin, Star, Search, Filter, Heart, Shield, Award, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'; // ✅ FIXED
+
 
 const PrescriptoApp = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedSpecialty, setSelectedSpecialty] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('grid');
+const navigate = useNavigate(); // ✅ this works now
+
 
   const specialties = [
     'General physician',
@@ -17,119 +21,128 @@ const PrescriptoApp = () => {
   ];
 
   const doctors = [
-    {
-      id: 1,
-      name: 'Dr. Richard James',
-      specialty: 'General physician',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.8,
-      reviews: 245,
-      experience: '8 years',
-      location: 'New York',
-      price: '$150',
-      nextAvailable: 'Today',
-      verified: true
-    },
-    {
-      id: 2,
-      name: 'Dr. Emily Larson',
-      specialty: 'Gynecologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.9,
-      reviews: 189,
-      experience: '12 years',
-      location: 'Los Angeles',
-      price: '$200',
-      nextAvailable: 'Tomorrow',
-      verified: true
-    },
-    {
-      id: 3,
-      name: 'Dr. Sarah Patel',
-      specialty: 'Dermatologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.7,
-      reviews: 156,
-      experience: '10 years',
-      location: 'Chicago',
-      price: '$180',
-      nextAvailable: 'Today',
-      verified: true
-    },
-    {
-      id: 4,
-      name: 'Dr. Christopher Lee',
-      specialty: 'Pediatricians',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.9,
-      reviews: 298,
-      experience: '15 years',
-      location: 'Houston',
-      price: '$160',
-      nextAvailable: '2 days',
-      verified: true
-    },
-    {
-      id: 5,
-      name: 'Dr. Maria Rodriguez',
-      specialty: 'Neurologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.8,
-      reviews: 167,
-      experience: '11 years',
-      location: 'Miami',
-      price: '$250',
-      nextAvailable: 'Today',
-      verified: true
-    },
-    {
-      id: 6,
-      name: 'Dr. James Wilson',
-      specialty: 'Gastroenterologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.6,
-      reviews: 134,
-      experience: '9 years',
-      location: 'Seattle',
-      price: '$220',
-      nextAvailable: 'Tomorrow',
-      verified: true
-    },
-    {
-      id: 7,
-      name: 'Dr. Lisa Chen',
-      specialty: 'General physician',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.7,
-      reviews: 201,
-      experience: '7 years',
-      location: 'San Francisco',
-      price: '$140',
-      nextAvailable: 'Today',
-      verified: true
-    },
-    {
-      id: 8,
-      name: 'Dr. Michael Brown',
-      specialty: 'Dermatologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.8,
-      reviews: 178,
-      experience: '13 years',
-      location: 'Boston',
-      price: '$190',
-      nextAvailable: '3 days',
-      verified: true
-    }
-  ];
+  {
+    id: 1,
+    name: 'Dr. Richard James',
+    specialty: 'General physician',
+    image: 'https://randomuser.me/api/portraits/men/40.jpg',
+    available: true,
+    rating: 4.8,
+    reviews: 245,
+    experience: '8 years',
+    location: 'New York',
+    price: '$150',
+    nextAvailable: 'Today',
+    verified: true,
+    about: 'Dr. Richard James is dedicated to personalized and preventive care for patients of all ages, with a focus on long-term wellness and disease prevention.'
+  },
+  {
+    id: 2,
+    name: 'Dr. Emily Larson',
+    specialty: 'Gynecologist',
+    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    available: true,
+    rating: 4.9,
+    reviews: 189,
+    experience: '12 years',
+    location: 'Los Angeles',
+    price: '$200',
+    nextAvailable: 'Tomorrow',
+    verified: true,
+    about: 'Dr. Emily Larson specializes in comprehensive women’s health, offering expert care in reproductive health, pregnancy, menopause, and hormonal therapy.'
+  },
+  {
+    id: 3,
+    name: 'Dr. Sarah Patel',
+    specialty: 'Dermatologist',
+    image: 'https://randomuser.me/api/portraits/women/47.jpg',
+    available: true,
+    rating: 4.7,
+    reviews: 156,
+    experience: '10 years',
+    location: 'Chicago',
+    price: '$180',
+    nextAvailable: 'Today',
+    verified: true,
+    about: 'Dr. Sarah Patel provides expert care in both clinical and cosmetic dermatology, treating a wide range of skin disorders with modern solutions.'
+  },
+  {
+    id: 4,
+    name: 'Dr. Christopher Lee',
+    specialty: 'Pediatricians',
+    image: 'https://randomuser.me/api/portraits/men/48.jpg',
+    available: true,
+    rating: 4.9,
+    reviews: 298,
+    experience: '15 years',
+    location: 'Houston',
+    price: '$160',
+    nextAvailable: '2 days',
+    verified: true,
+    about: 'Dr. Christopher Lee offers compassionate pediatric care, supporting children’s physical, emotional, and developmental needs from infancy to adolescence.'
+  },
+  {
+    id: 5,
+    name: 'Dr. Maria Rodriguez',
+    specialty: 'Neurologist',
+    image: 'https://randomuser.me/api/portraits/women/49.jpg',
+    available: true,
+    rating: 4.8,
+    reviews: 167,
+    experience: '11 years',
+    location: 'Miami',
+    price: '$250',
+    nextAvailable: 'Today',
+    verified: true,
+    about: 'Dr. Maria Rodriguez is a skilled neurologist with deep expertise in managing complex neurological disorders like epilepsy, migraines, and strokes.'
+  },
+  {
+    id: 6,
+    name: 'Dr. James Wilson',
+    specialty: 'Gastroenterologist',
+    image: 'https://randomuser.me/api/portraits/men/50.jpg',
+    available: true,
+    rating: 4.6,
+    reviews: 134,
+    experience: '9 years',
+    location: 'Seattle',
+    price: '$220',
+    nextAvailable: 'Tomorrow',
+    verified: true,
+    about: 'Dr. James Wilson focuses on digestive health and liver conditions, delivering advanced, patient-centered treatments for long-term gastrointestinal care.'
+  },
+  {
+    id: 7,
+    name: 'Dr. Lisa Chen',
+    specialty: 'General physician',
+    image: 'https://randomuser.me/api/portraits/women/51.jpg',
+    available: true,
+    rating: 4.7,
+    reviews: 201,
+    experience: '7 years',
+    location: 'San Francisco',
+    price: '$140',
+    nextAvailable: 'Today',
+    verified: true,
+    about: 'Dr. Lisa Chen provides comprehensive primary care, emphasizing preventive medicine and effective chronic disease management for adults and seniors.'
+  },
+  {
+    id: 8,
+    name: 'Dr. Michael Brown',
+    specialty: 'Dermatologist',
+    image: 'https://randomuser.me/api/portraits/men/52.jpg',
+    available: true,
+    rating: 4.8,
+    reviews: 178,
+    experience: '13 years',
+    location: 'Boston',
+    price: '$190',
+    nextAvailable: '3 days',
+    verified: true,
+    about: 'Dr. Michael Brown delivers results-driven dermatological care, helping patients with acne, aging skin, and cosmetic concerns using innovative treatments.'
+  }
+];
+
 
   const filteredDoctors = doctors.filter(doctor => {
     const matchesSpecialty = selectedSpecialty === '' || doctor.specialty === selectedSpecialty;
@@ -141,11 +154,15 @@ const PrescriptoApp = () => {
   const DoctorCard = ({ doctor }) => (
     <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200">
       <div className="relative">
-        <div className="w-full h-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
-          <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <User className="w-12 h-12 text-blue-600" />
-          </div>
-        </div>
+<div className="w-full h-48 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
+  <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+    <img
+      src={doctor.image}
+      alt={doctor.name}
+      className="w-full h-full object-cover rounded-full"
+    />
+  </div>
+</div>
         
         {doctor.available && (
           <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center backdrop-blur-sm">
@@ -199,7 +216,7 @@ const PrescriptoApp = () => {
           </div>
         </div>
         
-        <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center group-hover:shadow-lg">
+        <button onClick={() => navigate('/booking', { state: { doctor } })}className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center group-hover:shadow-lg">
           <Calendar className="w-4 h-4 mr-2" />
           Book Appointment
         </button>
