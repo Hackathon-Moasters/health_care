@@ -1,17 +1,12 @@
-// server.js
-// Add this to server.js
-const mongoose = require('mongoose');
-require('dotenv').config();
-const userRoutes = require('./routes/user');
-app.use('/api/users', userRoutes);
-// Add this to server.js
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('MongoDB connected'))
-    .catch((err) => console.log(err));
-const express = require('express');
-const app = express();
+require('dotenv').config();               // Load environment variables first
+const express = require('express');       // Import express
+const app = express();                    // Initialize app
+const mongoose = require('mongoose');     // Import mongoose
 
-app.use(express.json());
+const userRoutes = require('./routes/user'); // Adjust path if needed
+
+app.use(express.json());                  // Middleware for JSON body
+
 
 app.get('/', (req, res) => {
     res.send('Doctor Prescription API is running...');
