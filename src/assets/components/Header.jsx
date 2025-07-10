@@ -5,6 +5,7 @@ import Login from '../../pages/Login';
 import { useNavigate } from 'react-router-dom';
 import Alldoctor from '../../pages/Alldoctor'
 import Intropage from '../../pages/Intropage'
+import Contact from '../../pages/Contact_us'
 
 const Header = () => {
       const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ const Header = () => {
                 ABOUT
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
+              <a href="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
                 CONTACT
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
