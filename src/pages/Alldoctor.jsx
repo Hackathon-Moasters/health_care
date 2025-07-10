@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Menu, X, User, Calendar, Clock, MapPin, Star } from 'lucide-react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const PrescriptoApp = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedSpecialty, setSelectedSpecialty] = useState('');
+
+  const Navigate =useNavigate()
 
   const specialties = [
     'General physician',
@@ -136,7 +139,7 @@ const PrescriptoApp = () => {
           </div>
         </div>
         
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
+        <button onClick={()=>Navigate('/booking')} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
           <Calendar className="w-4 h-4 mr-2" />
           Book Appointment
         </button>
