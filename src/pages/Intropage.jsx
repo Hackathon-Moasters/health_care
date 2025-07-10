@@ -1,7 +1,10 @@
 import React from 'react';
 import { Search, ChevronRight, Users, Calendar, Shield, Star } from 'lucide-react';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 export default function PrescriptoWebsite() {
+  const Navigate =useNavigate()
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -19,7 +22,7 @@ export default function PrescriptoWebsite() {
             
             <nav className="hidden md:flex space-x-8">
               <a href="#" className="text-gray-900 hover:text-blue-600 font-medium">HOME</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">ALL DOCTORS</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium" onClick={()=>Navigate('/alldr')} >ALL DOCTORS</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">ABOUT</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">CONTACT</a>
             </nav>
