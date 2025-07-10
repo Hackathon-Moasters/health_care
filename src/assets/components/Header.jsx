@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Login from '../../pages/Login';
 import { useNavigate } from 'react-router-dom';
-
+import Alldoctor from '../../pages/Alldoctor'
+import Intropage from '../../pages/Intropage'
 
 const Header = () => {
       const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,11 +27,11 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
+              <a href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
                 HOME
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
+              <a href="/alldr" className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group">
                 ALL DOCTORS
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
