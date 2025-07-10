@@ -9,7 +9,7 @@ import BookingSlot from './pages/BookingSlot';
 import About from './pages/About';
 import Header from './assets/components/Header.jsx';
 import Contact from './pages/Contact_us.jsx';
-
+import ScrollToTop from './assets/components/SrollToTop.jsx';
 
 
 
@@ -17,6 +17,7 @@ const App = () => {
   
   return (
     <div>
+      <ScrollToTop />
      <div>
         <Header />
       </div>
