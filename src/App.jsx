@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Homepage from './pages/Homepage';
+import Dr_dashboard from './pages/Dr_dashboard';
 import Intropage from './pages/Intropage';
 import Login from './pages/Login';
-
+import Student_dashboard from './pages/Student_dashboard';
 
 
 
@@ -14,7 +14,8 @@ const App = () => {
     <div>
       <Routes>
   <Route path='/' element={ <Intropage/>} />
-  <Route path='/home' element={ <Homepage />} />
+  <Route path='/dr' element={ <Dr_dashboard/>} />
+  <Route path='/student' element={ <Student_dashboard />} />
   <Route path='/login' element={ <Login />} />
 
 
