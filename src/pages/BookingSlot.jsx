@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Shield, Info, Calendar, Clock } from 'lucide-react';
+import { useLoaderData, useLocation } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function DoctorBookingPage() {
   const [selectedDate, setSelectedDate] = useState('WED');
   const [selectedTime, setSelectedTime] = useState('');
+  const { state } = useLocation();
+const doctor = state?.doctor;
+
+  const Navigate =useNavigate()
 
   const weekDays = [
     { day: 'WED', date: 4, active: true },
@@ -27,7 +33,7 @@ export default function DoctorBookingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 mr-2 sm:mr-4 cursor-pointer hover:text-blue-600" />
+              <ArrowLeft onClick={()=>Navigate('/alldr')} className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 mr-2 sm:mr-4 cursor-pointer hover:text-blue-600" />
               <div className="flex items-center">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                   <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-sm"></div>
@@ -60,19 +66,19 @@ export default function DoctorBookingPage() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 sm:p-8 text-center">
                 <img 
-                  src="https://randomuser.me/api/portraits/men/40.jpg" 
-                  alt="Dr. Richard James" 
+                  src={doctor.image}
+                  alt={doctor.name} 
                   className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover"
-                />
+                  />
               </div>
               <div className="p-4 sm:p-6">
                 <div className="flex items-center justify-center mb-2">
-                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Dr. Richard James</h1>
+                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{doctor.name}</h1>
                   <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 ml-2" />
                 </div>
-                <p className="text-gray-600 text-center mb-4 text-sm sm:text-base">MBBS - General physician</p>
+                <p className="text-gray-600 text-center mb-4 text-sm sm:text-base">MBBS - {doctor.specialty}</p>
                 <div className="flex items-center justify-center text-sm text-gray-500 mb-6">
-                  <span>4 Years</span>
+                  <span> {doctor.experience} </span>
                 </div>
                 
                 <div className="border-t pt-6">
@@ -81,17 +87,14 @@ export default function DoctorBookingPage() {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">About</h3>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, 
-                        early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering 
-                        comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment 
-                        strategies.
+                         {doctor.about}
                       </p>
                     </div>
                   </div>
                   
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <p className="text-base sm:text-lg font-semibold text-gray-900">
-                      Appointment fee: <span className="text-blue-600">$50</span>
+                      Appointment fee: <span className="text-blue-600">${doctor.price} </span>
                     </p>
                   </div>
                 </div>

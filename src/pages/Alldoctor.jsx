@@ -16,89 +16,107 @@ const PrescriptoApp = () => {
     'Neurologist',
     'Gastroenterologist'
   ];
+const doctors = [
+  {
+    id: 1,
+    name: 'Dr. Richard James',
+    specialty: 'General physician',
+    image: 'https://randomuser.me/api/portraits/men/40.jpg',
+    available: true,
+    rating: 4.8,
+    experience: '8 years',
+    location: 'New York',
+    price: 50,
+    about: 'Dr. Richard James is dedicated to providing personalized and preventive care to patients of all ages, with a focus on long-term health and wellness.'
+  },
+  {
+    id: 2,
+    name: 'Dr. Emily Larson',
+    specialty: 'Gynecologist',
+    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    available: true,
+    rating: 4.9,
+    experience: '12 years',
+    location: 'Los Angeles',
+    price: 60,
+    about: 'Dr. Emily Larson specializes in women’s health, offering compassionate care in areas of pregnancy, reproductive health, and hormone management.'
+  },
+  {
+    id: 3,
+    name: 'Dr. Sarah Patel',
+    specialty: 'Dermatologist',
+    image: 'https://randomuser.me/api/portraits/women/47.jpg',
+    available: true,
+    rating: 4.7,
+    experience: '10 years',
+    location: 'Chicago',
+    price: 55,
+    about: 'Dr. Sarah Patel focuses on treating a wide range of skin conditions with the latest techniques in dermatological care and cosmetic procedures.'
+  },
+  {
+    id: 4,
+    name: 'Dr. Christopher Lee',
+    specialty: 'Pediatricians',
+    image: 'https://randomuser.me/api/portraits/men/48.jpg',
+    available: true,
+    rating: 4.9,
+    experience: '15 years',
+    location: 'Houston',
+    price: 65,
+    about: 'Dr. Christopher Lee is passionate about child health and development, providing friendly and knowledgeable pediatric care for children and infants.'
+  },
+  {
+    id: 5,
+    name: 'Dr. Maria Rodriguez',
+    specialty: 'Neurologist',
+    image: 'https://randomuser.me/api/portraits/women/49.jpg',
+    available: true,
+    rating: 4.8,
+    experience: '11 years',
+    location: 'Miami',
+    price: 75,
+    about: 'Dr. Maria Rodriguez is experienced in diagnosing and treating complex neurological conditions, helping patients manage migraines, seizures, and more.'
+  },
+  {
+    id: 6,
+    name: 'Dr. James Wilson',
+    specialty: 'Gastroenterologist',
+    image: 'https://randomuser.me/api/portraits/men/50.jpg',
+    available: true,
+    rating: 4.6,
+    experience: '9 years',
+    location: 'Seattle',
+    price: 70,
+    about: 'Dr. James Wilson provides expert care in digestive health, treating conditions such as IBS, ulcers, and liver diseases with advanced solutions.'
+  },
+  {
+    id: 7,
+    name: 'Dr. Lisa Chen',
+    specialty: 'General physician',
+    image: 'https://randomuser.me/api/portraits/women/51.jpg',
+    available: true,
+    rating: 4.7,
+    experience: '7 years',
+    location: 'San Francisco',
+    price: 50,
+    about: 'Dr. Lisa Chen delivers comprehensive primary care with a focus on chronic disease management and preventive screenings for adults and seniors.'
+  },
+  {
+    id: 8,
+    name: 'Dr. Michael Brown',
+    specialty: 'Dermatologist',
+    image: 'https://randomuser.me/api/portraits/men/52.jpg',
+    available: true,
+    rating: 4.8,
+    experience: '13 years',
+    location: 'Boston',
+    price: 60,
+    about: 'Dr. Michael Brown combines clinical excellence with a patient-first approach to address skin health, acne, aging, and cosmetic dermatology.'
+  }
+];
 
-  const doctors = [
-    {
-      id: 1,
-      name: 'Dr. Richard James',
-      specialty: 'General physician',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.8,
-      experience: '8 years',
-      location: 'New York'
-    },
-    {
-      id: 2,
-      name: 'Dr. Emily Larson',
-      specialty: 'Gynecologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.9,
-      experience: '12 years',
-      location: 'Los Angeles'
-    },
-    {
-      id: 3,
-      name: 'Dr. Sarah Patel',
-      specialty: 'Dermatologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.7,
-      experience: '10 years',
-      location: 'Chicago'
-    },
-    {
-      id: 4,
-      name: 'Dr. Christopher Lee',
-      specialty: 'Pediatricians',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.9,
-      experience: '15 years',
-      location: 'Houston'
-    },
-    {
-      id: 5,
-      name: 'Dr. Maria Rodriguez',
-      specialty: 'Neurologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.8,
-      experience: '11 years',
-      location: 'Miami'
-    },
-    {
-      id: 6,
-      name: 'Dr. James Wilson',
-      specialty: 'Gastroenterologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.6,
-      experience: '9 years',
-      location: 'Seattle'
-    },
-    {
-      id: 7,
-      name: 'Dr. Lisa Chen',
-      specialty: 'General physician',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.7,
-      experience: '7 years',
-      location: 'San Francisco'
-    },
-    {
-      id: 8,
-      name: 'Dr. Michael Brown',
-      specialty: 'Dermatologist',
-      image: '/api/placeholder/300/300',
-      available: true,
-      rating: 4.8,
-      experience: '13 years',
-      location: 'Boston'
-    }
-  ];
+
+
 
   const filteredDoctors = selectedSpecialty 
     ? doctors.filter(doctor => doctor.specialty === selectedSpecialty)
@@ -109,7 +127,12 @@ const PrescriptoApp = () => {
       <div className="relative">
         <div className="w-full h-64 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
           <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
-            <User className="w-16 h-16 text-blue-600" />
+<img 
+  src={doctor.image} 
+  alt={doctor.name} 
+  className="w-full h-full object-cover rounded-full"
+/>
+            
           </div>
         </div>
         {doctor.available && (
@@ -139,7 +162,7 @@ const PrescriptoApp = () => {
           </div>
         </div>
         
-        <button onClick={()=>Navigate('/booking')} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
+        <button onClick={()=>Navigate('/booking',{state:{doctor}})} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
           <Calendar className="w-4 h-4 mr-2" />
           Book Appointment
         </button>
