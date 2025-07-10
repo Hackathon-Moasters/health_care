@@ -94,7 +94,7 @@ const doctor = state?.doctor;
                   
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <p className="text-base sm:text-lg font-semibold text-gray-900">
-                      Appointment fee: <span className="text-blue-600">${doctor.price} </span>
+                      Appointment fee: <span className="text-blue-600">{doctor.price} </span>
                     </p>
                   </div>
                 </div>
